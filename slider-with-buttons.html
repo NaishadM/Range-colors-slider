@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 60%;
+  height: 10px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .8s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 27px;
+  height: 27px;
+  border: 0;
+  background: url('contrasticon.png');
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 27px;
+  height: 27px;
+  border: 0;
+  background: url('contrasticon.png');
+  cursor: pointer;
+}
+
+h1 {
+  text-shadow: 2px 2px 5px red;
+}
+
+
+#borderimg { 
+  border: 10px solid transparent;
+  padding: 20px;
+  border-image: url(border.png) 30% round;
+  box-sizing: content-box; 
+  width: 500px;
+  height: 220px;
+}
+
+
+.button1 {border-radius: 30%;
+ background-color: red;
+  border: 2px;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;}
+
+  .button2 {border-radius: 30%;
+ background-color: green;
+  border: 2px;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;}
+
+
+  .button3 {border-radius: 30%;
+ background-color: blue;
+  border: 2px;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;}
+
+</style>
+</head>
+<body>
+
+<font face="chiller" size=6> 
+<div class="boxes"><h1 align=center> Range RGB Slider</h1></font>
+
+ 
+<div class="slidecontainer" align=center>
+  <p id="borderimg">
+  <label> <font face=cursive size=5 color=black><b><button class="button button1" onclick="but1()">Red</button></b></font></label>
+  <input type="range" min="0" max="255" value="50" class="slider" id="Rred"><br><br>
+
+  <label> <font face=cursive size=5 color=black><b><button class="button button2" onclick="but2()">Green</button></b></font></label>
+  <input type="range" min="0" max="255" value="50" class="slider" id="Rgreen"><br><br>
+
+
+  <label> <font face=cursive size=5 color=black><b><button class="button button3" onclick="but3()">Blue</button></b></font></label>
+  <input type="range" min="0" max="255" value="50" class="slider" id="Rblue"><br><br><br>
+  
+  <h2 align =center>Color Value <span id= "colorOutput"></span></h2>
+
+</p>
+</div>
+
+<script>
+
+function but1()
+{
+  let color= 'RGB(255,0,0)';
+  document.body.style.backgroundColor =color;
+  document.getElementById('colorOutput').innerHTML= ': '+color
+}
+function but2()
+{
+  let color= 'RGB(0,255,0)';
+  document.body.style.backgroundColor =color;
+  document.getElementById('colorOutput').innerHTML= ': '+color
+}
+function but3()
+{
+  let color= 'RGB(0,0,255)';
+  document.body.style.backgroundColor =color;
+  document.getElementById('colorOutput').innerHTML= ': '+color
+}
+
+function changecolor()
+{
+    let red = document.getElementById('Rred').value;
+    let green = document.getElementById('Rgreen').value;
+    let blue = document.getElementById('Rblue').value;
+    let color= 'RGB('+red+','+green+','+blue+')';
+    document.body.style.backgroundColor =color;
+    document.getElementById('colorOutput').innerHTML= ': '+color
+
+}
+
+document.getElementById('Rred').addEventListener('input',changecolor);
+document.getElementById('Rgreen').addEventListener('input',changecolor);
+document.getElementById('Rblue').addEventListener('input',changecolor);
+
+
+</script>
+
+</body>
+</html>
